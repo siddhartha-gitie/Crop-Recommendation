@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Recommendation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: #f0f8ff;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+        .button-group button {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Crop Recommendation System</h2>
+    <form action="/predict" method="post" id="cropForm">
+        <input type="number" step="any" name="nitrogen" placeholder="Nitrogen (N)" required
+               value="{{ form_data.nitrogen if form_data and form_data.nitrogen else '' }}">
+        <input type="number" step="any" name="phosphorus" placeholder="Phosphorus (P)" required
+               value="{{ form_data.phosphorus if form_data and form_data.phosphorus else '' }}">
+        <input type="number" step="any" name="potassium" placeholder="Potassium (K)" required
+               value="{{ form_data.potassium if form_data and form_data.potassium else '' }}">
+        <input type="number" step="any" name="temperature" placeholder="Temperature (°C)" required
+               value="{{ form_data.temperature if form_data and form_data.temperature else '' }}">
+        <input type="number" step="any" name="humidity" placeholder="Humidity (%)" required
+               value="{{ form_data.humidity if form_data and form_data.humidity else '' }}">
+        <input type="number" step="any" name="ph" placeholder="Soil pH" required
+               value="{{ form_data.ph if form_data and form_data.ph else '' }}">
+        <input type="number" step="any" name="rainfall" placeholder="Rainfall (mm)" required
+               value="{{ form_data.rainfall if form_data and form_data.rainfall else '' }}">
+
+        <div class="button-group">
+            <button type="submit">Recommend Crop</button>
+            <button type="button" onclick="clearForm()">Clear</button>
+        </div>
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</div>
+
+<script>
+  function clearForm() {
+    // Redirect to home page to load fresh form (without form_data)
+    window.location.href = "/";
+  }
+</script>
+
+
+
+</body>
+</html>
