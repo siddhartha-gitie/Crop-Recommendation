@@ -51,7 +51,7 @@ The system is deployed using Flask and has a clear, intuitive web interface. It 
    Navigate to http://localhost:5000 to use the app.
 
 
-# Do not modify crop_model.pkl and label_encoder.pkl unless you're retraining the model.
+Do not modify crop_model.pkl and label_encoder.pkl unless you're retraining the model.
 
 
 ### Future Improvements
