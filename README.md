@@ -55,9 +55,13 @@ Do not modify crop_model.pkl and label_encoder.pkl unless you're retraining the 
 
 
 ### Future Improvements
+
 Add user authentication
+
 Mobile-responsive UI
+
 Integrate weather API for real-time data
+
 Deploy on cloud (Heroku, Render, etc.)
 
 
